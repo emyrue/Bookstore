@@ -6,7 +6,13 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookArray: [],
+      bookArray: [
+        {
+          title: 'Title',
+          author: 'Author',
+          id: '1',
+        },
+      ],
     };
   }
 
