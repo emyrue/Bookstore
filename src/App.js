@@ -3,6 +3,8 @@ import {
 } from 'react-router-dom';
 import React from 'react';
 import Home from './pages/Home';
+import Categories from './pages/Categories';
+import Error from './pages/Error';
 import './App.css';
 
 function App() {
@@ -14,7 +16,8 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add" />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </Router>
   );

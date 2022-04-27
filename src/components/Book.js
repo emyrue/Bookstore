@@ -12,11 +12,14 @@ class Book extends React.Component {
     return (
       bookArray.map((book) => (
         <li key={book.id}>
-          {book.title}
-          {' '}
-          by
-          {' '}
-          {book.author}
+          <span>
+            {book.title}
+            {' '}
+            by
+            {' '}
+            {book.author}
+          </span>
+          <button type="button">Remove</button>
         </li>
       ))
     );
