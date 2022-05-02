@@ -14,7 +14,10 @@ export default function reducer(state = [], action) {
         },
       ];
     case REMOVE:
-      return state.splice(action.index, 1);
+      return [
+        ...state.slice(0, action.index),
+        ...state.slice(action.index + 1),
+      ];
     default:
       return state;
   }
