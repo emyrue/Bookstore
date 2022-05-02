@@ -1,5 +1,5 @@
 // Action
-const CHECK = 'bookstore/books/CHECK';
+const CHECK = 'bookstore/categories/CHECK';
 
 // Reducer
 export default function reducer(state = [], action) {
