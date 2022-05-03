@@ -3,7 +3,18 @@ const ADD = 'bookstore/books/ADD';
 const REMOVE = 'bookstore/books/REMOVE';
 
 // Reducer
-export default function reducer(state = [], action) {
+export default function reducer(state = [
+  {
+    title: 'Title1',
+    author: 'Author1',
+    id: 0,
+  },
+  {
+    title: 'Title2',
+    author: 'Author2',
+    id: 1,
+  },
+], action) {
   switch (action.type) {
     case ADD:
       return [
@@ -11,6 +22,7 @@ export default function reducer(state = [], action) {
         {
           title: action.title,
           author: action.author,
+          id: state.length,
         },
       ];
     case REMOVE:
