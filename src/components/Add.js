@@ -1,8 +1,9 @@
 import React from 'react';
-import store from '../redux/configureStore';
+import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 
 function Add() {
+  const dispatch = useDispatch();
   const [book, changeBook] = React.useState({
     title: '',
     author: '',
@@ -27,7 +28,7 @@ function Add() {
   const newBook = (event) => {
     event.preventDefault();
     const action = addBook(book);
-    store.dispatch(action);
+    dispatch(action);
     changeBook({
       title: '',
       author: '',
