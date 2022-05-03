@@ -1,20 +1,46 @@
 import React from 'react';
+import store from '../redux/configureStore';
+import { addBook } from '../redux/books/books';
 
-class Add extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+function Add() {
+  const [book, changeBook] = React.useState({
+    title: '',
+    author: '',
+  });
 
-  render() {
-    return (
-      <form>
-        <input name="title" />
-        <input name="author" />
-        <button type="submit">Add Book</button>
-      </form>
-    );
-  }
+  const titleChange = (event) => {
+    const object = {
+      ...book,
+      title: event.target.value,
+    };
+    changeBook(object);
+  };
+
+  const authorChange = (event) => {
+    const object = {
+      ...book,
+      author: event.target.value,
+    };
+    changeBook(object);
+  };
+
+  const newBook = (event) => {
+    event.preventDefault();
+    const action = addBook(book);
+    store.dispatch(action);
+    changeBook({
+      title: '',
+      author: '',
+    });
+  };
+
+  return (
+    <form onSubmit={newBook}>
+      <input name="title" value={book.title} onChange={titleChange} required />
+      <input name="author" value={book.author} onChange={authorChange} required />
+      <button type="submit">Add Book</button>
+    </form>
+  );
 }
 
 export default Add;
