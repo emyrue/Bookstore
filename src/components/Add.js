@@ -1,12 +1,15 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/books';
+import createAxios from '../createAxios';
 
 function Add() {
   const dispatch = useDispatch();
   const [book, changeBook] = React.useState({
     title: '',
     author: '',
+    id: uuidv4(),
   });
 
   const titleChange = (event) => {
@@ -25,13 +28,22 @@ function Add() {
     changeBook(object);
   };
 
-  const newBook = (event) => {
+  const newBook = async (event) => {
     event.preventDefault();
     const action = addBook(book);
-    dispatch(action);
+    const response = createAxios.post('', {
+      ...book,
+      item_id: book.id,
+      category: 'Fiction',
+    });
+    response.then((result) => {
+      dispatch(action);
+      console.log(result);
+    });
     changeBook({
       title: '',
       author: '',
+      id: uuidv4(),
     });
   };
 
