@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 // Actions
 const ADD = 'bookstore/books/ADD';
 const REMOVE = 'bookstore/books/REMOVE';
@@ -7,12 +9,12 @@ export default function reducer(state = [
   {
     title: 'Title1',
     author: 'Author1',
-    id: 0,
+    id: uuidv4(),
   },
   {
     title: 'Title2',
     author: 'Author2',
-    id: 1,
+    id: uuidv4(),
   },
 ], action) {
   switch (action.type) {
@@ -22,7 +24,7 @@ export default function reducer(state = [
         {
           title: action.title,
           author: action.author,
-          id: state.length,
+          id: uuidv4(),
         },
       ];
     case REMOVE:
