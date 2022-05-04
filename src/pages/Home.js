@@ -6,11 +6,14 @@ import { getBooks, allBooks } from '../redux/books/books';
 
 function Home() {
   const dispatch = useDispatch();
-  React.useEffect(async () => {
-    getBooks().then((response) => {
-      const action = allBooks(response);
-      dispatch(action);
-    });
+  React.useEffect(() => {
+    const fetchData = async () => {
+      getBooks().then((response) => {
+        const action = allBooks(response)();
+        dispatch(action);
+      });
+    };
+    fetchData();
   }, []);
   const bookArray = useSelector((state) => state.books);
   return (

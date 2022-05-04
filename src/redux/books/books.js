@@ -21,31 +21,6 @@ export const getBooks = async () => {
 };
 
 // Reducer
-// async function reducer() {
-//   const myBooks = await getBooks();
-//   return (state = myBooks, action) => {
-//     switch (action.type) {
-//       case ADD:
-//         return [
-//           ...state,
-//           {
-//             title: action.title,
-//             author: action.author,
-//             category: 'Fiction',
-//             id: uuidv4(),
-//           },
-//         ];
-//       case REMOVE:
-//         return [
-//           ...state.slice(0, action.index),
-//           ...state.slice(action.index + 1),
-//         ];
-//       default:
-//         return state;
-//     }
-//   };
-// }
-
 export default function reducer(state = [], action) {
   switch (action.type) {
     case ADD:
@@ -72,23 +47,23 @@ export default function reducer(state = [], action) {
 
 // Action Creators
 export function addBook(book) {
-  return {
+  return () => ({
     type: ADD,
     title: book.title,
     author: book.author,
-  };
+  });
 }
 
 export function removeBook(index) {
-  return {
+  return () => ({
     type: REMOVE,
     index,
-  };
+  });
 }
 
 export function allBooks(array) {
-  return {
+  return () => ({
     type: FETCH,
     array,
-  };
+  });
 }

@@ -30,15 +30,14 @@ function Add() {
 
   const newBook = async (event) => {
     event.preventDefault();
-    const action = addBook(book);
+    const action = addBook(book)();
     const response = createAxios.post('', {
       ...book,
       item_id: book.id,
       category: 'Fiction',
     });
-    response.then((result) => {
+    response.then(() => {
       dispatch(action);
-      console.log(result);
     });
     changeBook({
       title: '',
