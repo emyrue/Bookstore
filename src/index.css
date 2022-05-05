@@ -161,7 +161,7 @@ ul {
 }
 
 .line {
-  height: 150px;
+  height: 75px;
   width: 0%;
   border: 1px solid lightgray;
   border-right: none;
