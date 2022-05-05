@@ -1,13 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
+import createAxios from '../createAxios';
 
 function Book() {
   const bookArray = useSelector((state) => state.books);
   const dispatch = useDispatch();
-  const deleteBook = (index) => {
-    const action = removeBook(index);
+  const deleteBook = (index, id) => {
+    const action = removeBook(index)();
     dispatch(action);
+    createAxios.delete(`/${id}`, {
+      item_id: id,
+    });
   };
   return (
     bookArray.map((book, i) => (
@@ -19,7 +23,7 @@ function Book() {
           {' '}
           {book.author}
         </span>
-        <button type="button" onClick={() => deleteBook(i)}>Remove</button>
+        <button type="button" onClick={() => deleteBook(i, book.id)}>Remove</button>
       </li>
     ))
   );
