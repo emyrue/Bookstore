@@ -52,6 +52,7 @@ header {
 h1 {
   color: #0290ff;
   padding: 0 10px;
+  font-size: 1.875rem;
 }
 
 nav {
@@ -63,6 +64,7 @@ nav {
 .link {
   color: black;
   text-decoration: none;
+  font-size: 0.8rem;
 }
 
 .list {
@@ -208,13 +210,13 @@ form {
 }
 
 .input {
-  width: 40%;
+  width: 35%;
   padding: 10px;
   border: 1px solid lightgray;
 }
 
 .submit {
-  width: 10%;
+  width: 20%;
   font-family: 'Roboto Slab', sans-serif;
   color: white;
   border: none;
