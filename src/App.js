@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Categories from './pages/Categories';
 import Error from './pages/Error';
 import './App.css';
+import avatar from './avatar.png';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <Link className="link" to="/"> BOOKS </Link>
           <Link className="link" to="/categories"> CATEGORIES </Link>
         </nav>
+        <div className="avatar">
+          <img className="blue-thing" src={avatar} alt="" />
+        </div>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
