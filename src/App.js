@@ -11,8 +11,11 @@ function App() {
   return (
     <Router>
       <header>
-        <Link to="/"> Home </Link>
-        <Link to="/categories"> Categories </Link>
+        <h1>Bookstore CMS</h1>
+        <nav>
+          <Link className="link" to="/"> BOOKS </Link>
+          <Link className="link" to="/categories"> CATEGORIES </Link>
+        </nav>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />

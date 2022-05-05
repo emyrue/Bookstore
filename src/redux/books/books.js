@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import createAxios from '../../createAxios';
 
 // Actions
@@ -30,7 +29,7 @@ export default function reducer(state = [], action) {
           title: action.title,
           author: action.author,
           category: 'Fiction',
-          id: uuidv4(),
+          id: action.id,
         },
       ];
     case REMOVE:
@@ -51,6 +50,7 @@ export function addBook(book) {
     type: ADD,
     title: book.title,
     author: book.author,
+    id: book.id,
   });
 }
 

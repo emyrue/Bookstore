@@ -47,11 +47,14 @@ function Add() {
   };
 
   return (
-    <form onSubmit={newBook}>
-      <input name="title" value={book.title} onChange={titleChange} required />
-      <input name="author" value={book.author} onChange={authorChange} required />
-      <button type="submit">Add Book</button>
-    </form>
+    <div className="form-container">
+      <h2>ADD NEW BOOK</h2>
+      <form onSubmit={newBook}>
+        <input className="input" placeholder="Book title" name="title" value={book.title} onChange={titleChange} required />
+        <input className="input" placeholder="Author" name="author" value={book.author} onChange={authorChange} required />
+        <button className="submit" type="submit">Add Book</button>
+      </form>
+    </div>
   );
 }
 
