@@ -6,13 +6,20 @@ import Home from './pages/Home';
 import Categories from './pages/Categories';
 import Error from './pages/Error';
 import './App.css';
+import avatar from './avatar.png';
 
 function App() {
   return (
     <Router>
       <header>
-        <Link to="/"> Home </Link>
-        <Link to="/categories"> Categories </Link>
+        <h1>Bookstore CMS</h1>
+        <nav>
+          <Link className="link" to="/"> BOOKS </Link>
+          <Link className="link" to="/categories"> CATEGORIES </Link>
+        </nav>
+        <div className="avatar">
+          <img className="blue-thing" src={avatar} alt="" />
+        </div>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />

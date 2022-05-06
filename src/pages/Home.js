@@ -7,7 +7,7 @@ import { getBooks, allBooks } from '../redux/books/books';
 function Home() {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       getBooks().then((response) => {
         const action = allBooks(response)();
         dispatch(action);
@@ -17,8 +17,9 @@ function Home() {
   }, []);
   const bookArray = useSelector((state) => state.books);
   return (
-    <div>
+    <div className="list">
       <BookList bookArray={bookArray} />
+      <hr />
       <Add />
     </div>
   );
